@@ -20,7 +20,7 @@ amount1 = float(input("Amount? "))
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
 
-print("\n" + "-" *40)
+print(f"\n{"-" *40}")
 
 print("SUMMARY")
 print(f"  - {item1}: \t\t ${amount1}")

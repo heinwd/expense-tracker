@@ -14,14 +14,18 @@ print(" [4] Exit \t\t\t (coming soon)\n")
 name = input("What is your name? ")
 print (f"Welcome {name}! Let's log two expenses.\n")
 
+subtotal = 0.0
+
 item1 = input("First expense? ")
 amount1 = float(input("Amount? "))
+subtotal += amount1
 
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
+subtotal += amount2
 
-taxRate = input("Tax rate %? ")
-budget = input("Your Budget? ")
+tax_percent = float(input("Tax rate %? "))
+budget = float(input("Your Budget? "))
 
 print(f"\n{"-" *40}")
 
@@ -29,22 +33,22 @@ print("SUMMARY")
 print(f"  - {item1}: \t\t ${amount1}")
 print(f"  - {item2}: \t\t ${amount2}")
 
-subtotal = amount1 + amount2
 print(f"Subtotal: \t\t ${subtotal}")
 
 average = subtotal / 2
 print(f"Average: \t\t ${average}")
 
-tax = subtotal * (float(taxRate) / 100)
-print(f"Tax ({float(taxRate)}%): \t\t ${tax}")
+tax = subtotal * (float(tax_percent) / 100)
+print(f"Tax ({float(tax_percent)}%): \t\t ${tax}")
 
-grandTotal = subtotal + tax
-print(f"Grand Total: \t\t ${grandTotal}")
+total = subtotal + tax
+print(f"Grand Total: \t\t ${total}")
 
-print("Overbudget? \t\t", "Yes" if grandTotal > float(budget) else "No")
+over_budget = total > float(budget)
+print(f"Overbudget? \t\t {over_budget}")
 
-leftBudget = float(budget) - grandTotal
-print(f"Left in the budget: \t ${leftBudget}")
+left = float(budget) - total
+print(f"Left in the budget: \t ${left}")
 
 print("-" *40)
 print("Made by: Justin Louis A. Capuno  |  Installment 3")
